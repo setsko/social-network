@@ -1,15 +1,12 @@
 import React from "react";
 import s from "./Profile.module.css";
 import MyPosts from "./MyPosts/MyPosts";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
+
 
 const Profile = () => {
-    return <div className={s.content}>
-        <div>
-            <img src="https://ega.ee/wp-content/uploads/2020/06/cyber_hacker.jpg"/>
-        </div>
-        <div>
-            avatar + description
-        </div>
+    return <div>
+        <ProfileInfo/>
         <MyPosts/>
     </div>
 }
