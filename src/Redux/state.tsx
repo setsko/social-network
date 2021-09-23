@@ -1,3 +1,8 @@
+import {rerenderEntireTree} from "../Render";
+
+
+
+
 export type messageDataType = {
     id: number
     message: string
@@ -6,19 +11,29 @@ export type dialogsDataType = {
     id: number
     name: string
 }
-export type postDataType = {
+export type postDataType =   {
     id: number
     message: string
     likesCount: number
 }
-export type AppTypeProps = {
-    dialogsData: Array<dialogsDataType>
-    messageData: Array<messageDataType>
-    postDataType: Array<postDataType>
+
+export type profileTypes = {
+    messageData:Array<messageDataType>
+    dialogsData:Array<dialogsDataType>
+}
+
+export type messagesPagesTypes = {
+    postData:Array<postDataType>
+}
+
+export type stateTypes = {
+    profile: profileTypes
+    messagesPages: messagesPagesTypes
 }
 
 
-let state = {
+
+let state:stateTypes = {
         profile: {
         messageData: [
             {id: 1., message: "Hi"},
@@ -43,5 +58,19 @@ let state = {
         ]
     }
 }
+
+
+
+export let addPost = (postMessage:string) => {
+    let newPost:postDataType = {
+        id:5,
+        message: postMessage,
+        likesCount: 0
+    };
+    state.messagesPages.postData.push (newPost);
+    rerenderEntireTree(state);
+}
+
+
 
 export default state;

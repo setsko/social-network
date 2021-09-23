@@ -7,13 +7,15 @@ import { postDataType } from "../../Redux/state";
 
 export type postDataTypeProps = {
     postDataType:Array<postDataType>
+    addPost: (postMessage:string) => void
+
 }
 
 
 const Profile = (props:postDataTypeProps) => {
     return <div>
         <ProfileInfo/>
-        <MyPosts postDataType={props.postDataType}/>
+        <MyPosts postDataType={props.postDataType} addPost={props.addPost}/>
     </div>
 }
 
